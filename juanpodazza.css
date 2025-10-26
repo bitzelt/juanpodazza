@@ -1,0 +1,156 @@
+
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+}
+
+   body.index {
+    margin: 0;
+  min-height: 100vh;                        
+  background-image: url("dibujo37.jpg");   
+  background-size: cover;                   
+  background-position: center;              
+  background-repeat: no-repeat;             
+  font-family: 'Montserrat', sans-serif;}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.miniatura {
+  width: 18%;
+  height: auto;
+  object-fit: contain; 
+  aspect-ratio: auto;  
+  cursor: pointer;
+  transition: transform 0.3s;
+  background-color: #f5f5f5; 
+}
+
+.miniatura:hover {
+  transform: scale(1.05);
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  transition: transform 0.3s;
+  transform: scale(0.5);
+}
+
+#overlay.show img {
+  transform: scale(1);
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+.navbar {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+     background-color: transparent;
+    
+}
+.nav-links li a,
+.nav-links li a:visited,
+.nav-links li a:active,
+.nav-links li a:focus {
+  color: #db0000;            
+  text-decoration: none;     
+}
+
+
+.logo {
+     font-size: 32px;
+    font-weight: 500; 
+    cursor: pointer;
+    display: flex;
+    gap: 2px;
+    color: #db0000;
+    
+}
+.logo a,
+.logo a:visited,
+.logo a:active,
+.logo a:focus {
+  color: #db0000;       
+  text-decoration: none; 
+}
+
+.logo span {
+    display: inline-block;
+    animation: rotate360 3s linear infinite;
+}
+
+
+.logo span:nth-child(1) { animation-delay: 0s; }
+.logo span:nth-child(2) { animation-delay: 0.1s; }
+.logo span:nth-child(3) { animation-delay: 0.2s; }
+.logo span:nth-child(4) { animation-delay: 0.3s; }
+.logo span:nth-child(5) { animation-delay: 0.4s; }
+.logo span:nth-child(6) { animation-delay: 0.5s; }
+.logo span:nth-child(7) { animation-delay: 0.6s; }
+.logo span:nth-child(8) { animation-delay: 0.7s; }
+.logo span:nth-child(9) { animation-delay: 0.8s; }
+.logo span:nth-child(10){ animation-delay: 0.9s; }
+.logo span:nth-child(11){ animation-delay: 1s; }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #db0000;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #478bda;
+}
+
+@keyframes rotate360 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
