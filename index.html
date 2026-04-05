@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JuanPodazza</title>
+<link rel="stylesheet" href="juanpodazza.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDR4R9ML5E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZBR4R9ML5E');
+</script>
+
+<style>
+  /* ── Lang switcher ── */
+  .lang-switcher {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .lang-switcher button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #478bda;
+    opacity: 0.45;
+    transition: opacity 0.2s, color 0.2s;
+    padding: 2px 2px;
+    letter-spacing: 0.05em;
+  }
+  .lang-switcher button:hover {
+    color: #b7f12f;
+    opacity: 1;
+  }
+  .lang-switcher button.active {
+    color: #9cd80f;
+    opacity: 1;
+  }
+  .lang-switcher span.sep {
+    color: #478bda;
+    opacity: 0.3;
+    font-size: 12px;
+  }
+
+  /* ── About section ── */
+  .about-section {
+    display: none;
+    max-width: 640px;
+    margin: 60px auto 80px;
+    padding: 0 28px;
+    animation: fadeIn 0.4s ease;
+  }
+  .about-section.visible {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .about-label {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9cd80f;
+    margin-bottom: 18px;
+    margin-top: 0;
+  }
+
+  .about-statement {
+    margin-bottom: 52px;
+  }
+
+  .about-statement p,
+  .about-bio p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.93rem;
+    line-height: 1.85;
+    color: #478bda;
+    margin: 0 0 1.1em;
+  }
+
+  /* ── Contact section ── */
+  .contact-section {
+    display: none;
+    max-width: 640px;
+    margin: 60px auto 80px;
+    padding: 0 28px;
+    animation: fadeIn 0.4s ease;
+  }
+  .contact-section.visible {
+    display: block;
+  }
+
+  .contact-section input,
+  .contact-section textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #478bda;
+    color: #478bda;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    padding: 10px 0;
+    margin-bottom: 28px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+  .contact-section input::placeholder,
+  .contact-section textarea::placeholder {
+    color: #478bda;
+    opacity: 0.45;
+  }
+  .contact-section input:focus,
+  .contact-section textarea:focus {
+    border-bottom-color: #9cd80f;
+  }
+  .contact-section textarea {
+    resize: none;
+    height: 100px;
+  }
+  .contact-section button[type="submit"] {
+    background: none;
+    border: 1px solid #478bda;
+    color: #478bda;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-section button[type="submit"]:hover {
+    border-color: #9cd80f;
+    color: #9cd80f;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+  }
+  .rtl {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .lang-switcher button {
+      font-size: 13px;
+    }
+    .about-section {
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+    .about-statement p,
+    .about-bio p {
+      font-size: 0.88rem;
+      color: #478bda;
+    }
+  }
+</style>
+</head>
+
+<body class="index">
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <span>J</span><span>U</span><span>A</span><span>N</span>&nbsp;<span>P</span><span>O</span><span>D</span><span>A</span><span>Z</span><span>Z</span><span>A</span>
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="obras.html" data-i18n="nav-obras">Obras</a></li>
+      <li><a href="#about" id="about-link" data-i18n="nav-about">About</a></li>
+      <li><a href="#contact" id="contact-link" data-i18n="nav-contact">Contacto</a></li>
+    </ul>
+
+    <div class="lang-switcher">
+      <button onclick="setLang('es')" class="active" id="btn-es">ES</button>
+      <span class="sep">/</span>
+      <button onclick="setLang('ar')" id="btn-ar">AR</button>
+      <span class="sep">/</span>
+      <button onclick="setLang('jp')" id="btn-jp">JP</button>
+    </div>
+  </nav>
+
+  <!-- ── About ── -->
+  <section class="about-section" id="about">
+
+    <div class="about-statement">
+      <span class="about-label" data-i18n="label-statement">Artist Statement</span>
+
+      <div data-lang="es">
+        <p>Juan Podazza es un artista autodidacta argentino cuya práctica surge de un proceso continuo de autoindagación. Trabaja principalmente con el dibujo, construyendo un lenguaje visual intuitivo arraigado en el gesto, la repetición y la forma orgánica — no como método predeterminado, sino como manera de descubrir lo que subyace bajo la intención consciente.</p>
+        <p>Su obra se mueve entre la figuración y la abstracción: figuras, rostros y formas aparecen y se disuelven dentro de una misma superficie, trazando el territorio inestable entre lo que se conoce y lo que aún está siendo comprendido. Cada marca es al mismo tiempo un acto de exploración y un registro de ese acto.</p>
+        <p>Sin formación académica, desarrolló su práctica desde los 17 años a través de la observación sostenida de su propio impulso creativo — tratando la página en blanco no como un problema a resolver, sino como un espacio a habitar.</p>
+      </div>
+
+      <div data-lang="ar" class="rtl" style="display:none">
+        <p>خوان بوداتزا فنان أرجنتيني علّم نفسه بنفسه، وتنبثق ممارسته من عملية مستمرة من البحث الداخلي. يعمل أساساً بالرسم، بانياً لغةً بصرية حدسية متجذّرة في الإيماءة والتكرار والشكل العضوي — لا بوصفها منهجاً محدداً مسبقاً، بل وسيلةً للكشف عمّا يكمن تحت الإرادة الواعية.</p>
+        <p>تتنقل أعماله بين التشخيص والتجريد: تظهر أشكال ووجوه وهيئات ثم تذوب داخل السطح ذاته، راسمةً ذلك الأرض الهشة بين ما هو معروف وما لا يزال قيد الفهم. كل أثر هو في آنٍ واحد فعل استكشاف وتسجيل له.</p>
+        <p>دون تكوين أكاديمي، طوّر ممارسته منذ سنّ السابعة عشرة من خلال مراقبة متواصلة لدوافعه الإبداعية — متعاملاً مع الصفحة البيضاء لا بوصفها مشكلةً تُحلّ، بل فضاءً يُقطن.</p>
+      </div>
+
+      <div data-lang="jp" style="display:none">
+        <p>フアン・ポダッツァはアルゼンチンの独学アーティストであり、その実践は絶え間ない自己探求のプロセスから生まれる。主にドローイングを手がけ、身振り、反復、有機的な形態に根ざした直感的な視覚言語を構築する――それはあらかじめ定められた方法論ではなく、意識的な意図の下に潜むものを発見するための手段である。</p>
+        <p>彼の作品は形象と抽象の間を揺れ動く。人物、顔、形が同一の画面の中に現れては溶け、既知のものとまだ理解されていないものの間の不安定な領域を描き出す。それぞれの痕跡は、探求の行為であると同時に、その記録でもある。</p>
+        <p>正式な美術教育を受けることなく、17歳から自らの創造的衝動を持続的に観察することで実践を発展させてきた――白紙を解くべき問題としてではなく、そこに宿るべき空間として扱いながら。</p>
+      </div>
+    </div>
+
+    <div class="about-bio">
+      <span class="about-label" data-i18n="label-bio">Bio</span>
+
+      <div data-lang="es">
+        <p>Juan Podazza (Argentina, 1986) es artista autodidacta con más de veinte años de práctica. Su trabajo se centra en el dibujo como herramienta de autoconocimiento, explorando el vínculo entre gesto, forma orgánica e intuición. Ha participado en muestras y exposiciones, y su obra circula en plataformas digitales de arte contemporáneo.</p>
+      </div>
+
+      <div data-lang="ar" class="rtl" style="display:none">
+        <p>خوان بوداتزا (الأرجنتين، 1986) فنان علّم نفسه بنفسه، تمتد ممارسته على مدى أكثر من عشرين عاماً. يتمحور عمله حول الرسم بوصفه أداةً للمعرفة الذاتية، مستكشفاً العلاقة بين الإيماءة والشكل العضوي والحدس. شارك في معارض وعروض متعددة، وتنتشر أعماله على منصات الفن المعاصر الرقمية.</p>
+      </div>
+
+      <div data-lang="jp" style="display:none">
+        <p>フアン・ポダッツァ（アルゼンチン、1986年生まれ）は二十年以上のキャリアを持つ独学アーティスト。ドローイングを自己認識のツールとして位置づけ、身振り、有機的な形態、直感の関係を探求する。複数の展覧会やグループショーに参加し、作品はデジタルの現代アートプラットフォームで広く紹介されている。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Contact ── -->
+  <section class="contact-section" id="contact">
+    <span class="about-label" data-i18n="label-contact">Contacto</span>
+
+    <!-- Reemplazá YOUR_FORM_ID con el ID que te da Formspree -->
+    <form action="https://formspree.io/f/mbdpqjed" method="POST">
+      <input type="text" name="name" data-placeholder-i18n="form-name" placeholder="Nombre" required>
+      <input type="email" name="email" data-placeholder-i18n="form-email" placeholder="Email" required>
+      <textarea name="message" data-placeholder-i18n="form-message" placeholder="Mensaje" required></textarea>
+      <button type="submit" data-i18n="form-send">Enviar</button>
+    </form>
+  </section>
+
+  <script>
+    const translations = {
+      es: {
+        'nav-obras': 'Obras',
+        'nav-about': 'About',
+        'nav-contact': 'Contacto',
+        'label-statement': 'Artist Statement',
+        'label-bio': 'Bio',
+        'label-contact': 'Contacto',
+        'form-name': 'Nombre',
+        'form-email': 'Email',
+        'form-message': 'Mensaje',
+        'form-send': 'Enviar'
+      },
+      ar: {
+        'nav-obras': 'الأعمال',
+        'nav-about': 'عن الفنان',
+        'nav-contact': 'تواصل',
+        'label-statement': 'بيان الفنان',
+        'label-bio': 'السيرة الذاتية',
+        'label-contact': 'تواصل',
+        'form-name': 'الاسم',
+        'form-email': 'البريد الإلكتروني',
+        'form-message': 'الرسالة',
+        'form-send': 'إرسال'
+      },
+      jp: {
+        'nav-obras': '作品',
+        'nav-about': 'について',
+        'nav-contact': 'お問い合わせ',
+        'label-statement': 'ステートメント',
+        'label-bio': '略歴',
+        'label-contact': 'お問い合わせ',
+        'form-name': 'お名前',
+        'form-email': 'メールアドレス',
+        'form-message': 'メッセージ',
+        'form-send': '送信'
+      }
+    };
+
+    function setLang(lang) {
+      // Botones
+      document.querySelectorAll('.lang-switcher button').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+
+      // Bloques de texto
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+      });
+
+      // Etiquetas
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang]?.[key]) el.textContent = translations[lang][key];
+      });
+
+      // Placeholders del formulario
+      document.querySelectorAll('[data-placeholder-i18n]').forEach(el => {
+        const key = el.dataset.placeholderI18n;
+        if (translations[lang]?.[key]) el.placeholder = translations[lang][key];
+      });
+
+      // RTL para árabe
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    }
+
+    // Mostrar About al clickear
+    document.getElementById('about-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('contact').classList.remove('visible');
+      const section = document.getElementById('about');
+      section.classList.add('visible');
+      setTimeout(() => section.scrollIntoView({ behavior: 'smooth' }), 50);
+    });
+
+    // Mostrar Contacto al clickear
+    document.getElementById('contact-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('about').classList.remove('visible');
+      const section = document.getElementById('contact');
+      section.classList.add('visible');
+      setTimeout(() => section.scrollIntoView({ behavior: 'smooth' }), 50);
+    });
+
+    // Mostrar About si se llega con #about en la URL
+    if (window.location.hash === '#about') {
+      document.getElementById('about').classList.add('visible');
+    }
+  </script>
+
+</body>
+</html>
